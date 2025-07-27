@@ -1,109 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChopBank - Invest in Everyday Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #e6ffe6;
-      margin: 0;
-      padding: 0;
-      color: #1a3d1a;
-    }
-    header {
-      background-color: #006400;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    .tagline {
-      font-size: 1.2em;
-      margin-top: 5px;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0, 100, 0, 0.15);
-      text-align: center;
-    }
-    .card h2 {
-      font-size: 1.4em;
-    }
-    .card p {
-      margin: 10px 0;
-    }
-    .btn {
-      background-color: #008000;
-      color: white;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    .btn:hover {
-      background-color: #005d00;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #004d00;
-      color: white;
-      font-size: 0.9em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChopBank - Invest in Food, Harvest Wealth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5fff5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            padding: 1rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .intro h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        .intro p {
+            font-size: 1.2em;
+        }
+        .start-investing {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .start-investing a {
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .start-investing a:hover {
+            background-color: #388e3c;
+        }
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .item img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .item h3 {
+            margin: 0.5rem 0 0.3rem;
+        }
+        .item p {
+            margin: 0.3rem 0;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>ChopBank</h1>
-    <div class="tagline">Invest in rice, beans & garri. Watch your money grow. Cash out or harvest with delivery!</div>
-  </header>
-
-  <section class="section">
-    <h2 style="text-align:center">Start Your Food Investment</h2>
-    <p style="text-align:center; max-width:600px; margin: 0 auto 30px auto;">
-      Turn your savings into real food assets. Join ChopBank and invest in rice, beans, and garri. Either grow your value and cash out, or choose to harvest and have your goods delivered.
-    </p>
-    <div class="products">
-      <div class="card">
-        <h2>Rice</h2>
-        <p>Secure your share in Nigeria's staple grain. Watch its value grow with time.</p>
-        <button class="btn">Invest Now</button>
-      </div>
-      <div class="card">
-        <h2>Beans</h2>
-        <p>Invest in a daily essential. Perfect for long-term food-backed savings.</p>
-        <button class="btn">Invest Now</button>
-      </div>
-      <div class="card">
-        <h2>Garri</h2>
-        <p>The people's favorite. Let your money grow in a commodity you know.</p>
-        <button class="btn">Invest Now</button>
-      </div>
+    <header>
+        <h1>ChopBank</h1>
+        <p>Invest in rice, beans, and everyday food. Watch your money grow with real food-backed value.</p>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <h1>Make Your Money Grow with Food</h1>
+            <p>Invest in rice, beans, and garri. Watch your money grow with real food-backed value.</p>
+        </div>
+        <div class="start-investing">
+            <a href="invest.html">Start Investing</a>
+        </div>
+        <div class="catalog">
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1585238341968-1d5e61c4b922" alt="Rice">
+                <h3>Rice</h3>
+                <p>Starting from ₦2,000</p>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1609766857400-1041394671b5" alt="Beans">
+                <h3>Beans</h3>
+                <p>Starting from ₦2,000</p>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1610121840140-44f60f21e6c4" alt="Garri">
+                <h3>Garri</h3>
+                <p>Starting from ₦2,000</p>
+            </div>
+        </div>
     </div>
-  </section>
-
-  <footer>
-    &copy; 2025 ChopBank. Eat your profits, literally.
-  </footer>
 </body>
 </html>
- 
