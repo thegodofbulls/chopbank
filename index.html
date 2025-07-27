@@ -1,148 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harvestly - Grow Wealth with Food</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChowVest - Invest in What You Eat</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fefefe;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fef9f4;
       color: #333;
     }
+
     header {
-      background-color: #00a86b;
-      color: white;
-      padding: 20px;
+      background-color: #fff;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #27ae60;
     }
+
     .hero {
-      background-color: #fffbe6;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2.4em;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    .cta-btn {
-      background-color: #00a86b;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.1em;
-      cursor: pointer;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    .section h3 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-    }
-    .steps,
-    .features {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-    .card {
-      background-color: #f2f2f2;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .prices {
-      background-color: #e1f5e9;
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .product-images {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 30px 0;
-    }
-    .product-images img {
-      width: 180px;
-      border-radius: 12px;
-      height: 180px;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    footer {
-      background-color: #222;
-      color: white;
+      align-items: center;
       text-align: center;
-      padding: 20px;
+      padding: 4rem 2rem 2rem;
+      background-color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2d3436;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #636e72;
+    }
+
+    .hero button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #219150;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background-color: #f9f9f9;
+    }
+
+    .feature {
+      max-width: 300px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .feature img {
+      max-width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .feature h3 {
+      margin-bottom: 0.5rem;
+      color: #2d3436;
+    }
+
+    .feature p {
+      font-size: 0.95rem;
+      color: #636e72;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
+      color: #636e72;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <h1>Harvestly</h1>
+    <div class="logo">ChowVest</div>
   </header>
 
-  <div class="hero">
-    <h2>Grow Your Money with Everyday Food</h2>
-    <p>Start from just ₦2,000. Invest in rice, beans or garri — and watch your investment grow.</p>
-    <a href="invest.html" class="cta-btn">Invest Now</a>
-  </div>
+  <section class="hero">
+    <h1>Invest in Food, Watch Your Wealth Grow</h1>
+    <p>Turn your daily staples into digital assets. With ChowVest, you invest in food without the stress of storage or spoilage. Withdraw anytime as cash.</p>
+    <a href="invest.html"><button>Start Investing</button></a>
+  </section>
 
-  <div class="section">
-    <h3>How It Works</h3>
-    <div class="steps">
-      <div class="card"><strong>1:</strong> Pick a food item — rice, beans or garri</div>
-      <div class="card"><strong>2:</strong> We store and manage it on your behalf</div>
-      <div class="card"><strong>3:</strong> Watch your investment grow and withdraw anytime</div>
+  <section class="features">
+    <div class="feature">
+      <img src="images/rice.jpg" alt="Rice">
+      <h3>Rice</h3>
+      <p>Starting from ₦2,000. Earn passive income on Nigeria’s most loved staple.</p>
     </div>
-  </div>
-
-  <div class="section product-images">
-    <img src="https://images.unsplash.com/photo-1607532941433-304659e81926?auto=format&fit=crop&w=600&q=80" alt="Rice">
-    <img src="https://images.unsplash.com/photo-1600185365920-3dbd29c1ecdc?auto=format&fit=crop&w=600&q=80" alt="Beans">
-    <img src="https://images.unsplash.com/photo-1606239408353-b019df79e8ae?auto=format&fit=crop&w=600&q=80" alt="Garri">
-  </div>
-
-  <div class="section prices">
-    <h3>Current Market Prices</h3>
-    <ul>
-      <li>Rice: ₦1,200 / kg</li>
-      <li>Beans: ₦1,400 / kg</li>
-      <li>Garri: ₦650 / kg</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3>Why Choose Harvestly?</h3>
-    <ul>
-      <li>✔️ Start investing with just ₦2,000</li>
-      <li>✔️ Own real food commodities</li>
-      <li>✔️ We handle logistics, storage & security</li>
-      <li>✔️ Watch your food value rise with the market</li>
-      <li>✔️ Withdraw anytime — no stress, no lock-in</li>
-    </ul>
-  </div>
+    <div class="feature">
+      <img src="images/beans.jpg" alt="Beans">
+      <h3>Beans</h3>
+      <p>Beans never go out of demand. Invest smart, grow steady.</p>
+    </div>
+    <div class="feature">
+      <img src="images/garri.jpg" alt="Garri">
+      <h3>Garri</h3>
+      <p>Affordable entry. Reliable returns. Let your Garri bag the gains.</p>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 Harvestly — Food is wealth.</p>
+    &copy; 2025 ChowVest. Built for the future of food investing.
   </footer>
-
 </body>
+
 </html>
