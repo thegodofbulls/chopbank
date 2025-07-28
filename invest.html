@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Invest | ChowVest</title>
+  <title>Invest in Commodities | ChowVest</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      background-color: #f4fdf4;
+      color: #222;
     }
 
     header {
       background-color: #4CAF50;
-      padding: 1rem 2rem;
-      text-align: center;
       color: white;
+      text-align: center;
+      padding: 1.5rem;
       font-size: 1.8rem;
       font-weight: bold;
     }
@@ -30,49 +30,52 @@
     h2 {
       text-align: center;
       color: #4CAF50;
+      margin-bottom: 2rem;
     }
 
     .commodity-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
 
-    .commodity-card {
-      background-color: white;
+    .commodity {
+      background-color: #fff;
       border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       overflow: hidden;
       transition: transform 0.3s;
     }
 
-    .commodity-card:hover {
-      transform: scale(1.02);
+    .commodity:hover {
+      transform: scale(1.015);
     }
 
-    .commodity-card img {
+    .commodity img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
 
-    .commodity-card .content {
-      padding: 1rem;
+    .commodity .details {
+      padding: 1.2rem;
     }
 
-    .commodity-card .content h3 {
+    .commodity h3 {
       margin-top: 0;
       color: #333;
+      margin-bottom: 0.5rem;
     }
 
-    .commodity-card .content p {
+    .commodity p {
+      margin: 0.2rem 0;
       font-size: 0.95rem;
-      margin-bottom: 1rem;
+      line-height: 1.5;
     }
 
     .invest-btn {
       display: inline-block;
+      margin-top: 1rem;
       padding: 0.6rem 1.2rem;
       background-color: #4CAF50;
       color: white;
@@ -83,7 +86,7 @@
     }
 
     .invest-btn:hover {
-      background-color: #45a049;
+      background-color: #3e9843;
     }
 
     footer {
@@ -91,45 +94,60 @@
       padding: 2rem;
       font-size: 0.9rem;
       color: #777;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    ChowVest - Invest in Food, Grow Your Wealth
+    ChowVest - Choose Your Commodity
   </header>
 
   <main>
-    <h2>Choose a Commodity to Invest In</h2>
+    <h2>Invest in What You Eat</h2>
 
     <div class="commodity-grid">
-      <div class="commodity-card">
+
+      <div class="commodity">
         <img src="/images/rice.jpeg" alt="Rice">
-        <div class="content">
+        <div class="details">
           <h3>Rice</h3>
-          <p>Invest in Nigeria’s most consumed staple. Profitable and stable.</p>
+          <p><strong>Unit Price:</strong> ₦35,000 per 50kg bag</p>
+          <p><strong>Storage Period:</strong> 3 months</p>
+          <p><strong>Expected ROI:</strong> 10-15%</p>
+          <p><strong>Storage Location:</strong> Ikeja, Lagos</p>
+          <p><strong>Availability:</strong> 200 bags</p>
           <a href="#" class="invest-btn">Invest in Rice</a>
         </div>
       </div>
 
-      <div class="commodity-card">
+      <div class="commodity">
         <img src="/images/beans.jpeg" alt="Beans">
-        <div class="content">
+        <div class="details">
           <h3>Beans</h3>
-          <p>High demand, high return. Beans are a nutritious opportunity.</p>
+          <p><strong>Unit Price:</strong> ₦42,000 per 100kg bag</p>
+          <p><strong>Storage Period:</strong> 2 months</p>
+          <p><strong>Expected ROI:</strong> 12%</p>
+          <p><strong>Storage Location:</strong> Yaba, Lagos</p>
+          <p><strong>Availability:</strong> 150 bags</p>
           <a href="#" class="invest-btn">Invest in Beans</a>
         </div>
       </div>
 
-      <div class="commodity-card">
+      <div class="commodity">
         <img src="/images/garri.jpeg" alt="Garri">
-        <div class="content">
+        <div class="details">
           <h3>Garri</h3>
-          <p>Everyday consumption means steady returns for you.</p>
+          <p><strong>Unit Price:</strong> ₦28,000 per 80kg bag</p>
+          <p><strong>Storage Period:</strong> 1.5 months</p>
+          <p><strong>Expected ROI:</strong> 8-10%</p>
+          <p><strong>Storage Location:</strong> Ikorodu, Lagos</p>
+          <p><strong>Availability:</strong> 300 bags</p>
           <a href="#" class="invest-btn">Invest in Garri</a>
         </div>
       </div>
+
     </div>
   </main>
 
