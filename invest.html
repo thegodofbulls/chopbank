@@ -4,104 +4,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invest in Food Commodities</title>
+  <title>Invest in Rice | ChowVest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9fdf9;
-      color: #1f2e1f;
+      font-family: 'Inter', sans-serif;
+      background-color: #f6f7fb;
+      color: #1a1a1a;
+    }
+
+    .header {
+      background-color: #003f2f;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
     }
 
     .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 1.5rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
-      color: #1a4f1a;
       font-size: 2rem;
       margin-bottom: 1rem;
+      color: #003f2f;
     }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
+    .commodity-img {
+      width: 100%;
+      border-radius: 12px;
       margin-bottom: 1rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
-      list-style-type: disclosure-closed;
+    .price-info {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
     }
 
-    .price, .min-investment {
-      font-weight: bold;
-      color: #145214;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .invest-button {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      background-color: #008060;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .invest-button:hover {
+      background-color: #006f53;
     }
 
     .note {
-      margin-top: 1rem;
-      font-style: italic;
-      color: #447744;
-      background-color: #ebfaeb;
-      padding: 0.75rem;
-      border-radius: 8px;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      background-color: #1a7f1a;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #166a16;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-      .container {
-        padding: 1rem;
-      }
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 10px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Start Investing in Food Commodities</h1>
-    <p>Pick from our available food items, grow your money, and help support food access. Every investment helps fight food insecurity — and earns you real value.</p>
-    <ul>
-      <li>Rice</li>
-      <li>Beans</li>
-      <li>Garri</li>
-      <li>Groundnut Oil</li>
-      <li>Palm Oil</li>
-      <li>Flour</li>
-    </ul>
+  <div class="header">
+    <h2>ChowVest - Rice Investment</h2>
+  </div>
 
-    <p class="price">Price: ₦42,000 per bag</p>
-    <p class="min-investment">Minimum investment: ₦2,000</p>
+  <div class="container">
+    <img src="images/rice.jpeg" alt="Rice" class="commodity-img" />
+    <h1>Invest in Rice</h1>
+    <p class="price-info">Current price: ₦1,200 per kg</p>
+
+    <label for="amount">How much do you want to invest? (₦)</label>
+    <input type="number" id="amount" placeholder="Enter amount e.g. 5000" />
+
+    <button class="invest-button">Buy & Store Now</button>
 
     <div class="note">
-      P.S. We include storage and handling in the price — because we care about your food staying fresh and safe until you're ready to enjoy it 🥦✨
+      You’re investing in physical rice stored securely by ChowVest. Watch your investment grow and withdraw anytime.
     </div>
-
-    <a href="#" class="button">Start Investing</a>
   </div>
 </body>
 
