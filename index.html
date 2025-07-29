@@ -1,143 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Invest in Food Commodities - ChowVest</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChowVest - Invest in What You Eat</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
     body {
-      background-color: #f9f9f9;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fef9f4;
       color: #333;
-      line-height: 1.6;
     }
+
     header {
-      background-color: #1e1e1e;
-      color: white;
+      background-color: #fff;
       padding: 1rem 2rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #27ae60;
     }
-    p {
-      font-size: 1rem;
-      color: #ccc;
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #27ae60;
+      font-weight: 500;
     }
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+
+    nav a:hover {
+      text-decoration: underline;
     }
-    .commodity {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-      overflow: hidden;
+
+    .hero {
       display: flex;
       flex-direction: column;
-    }
-    .commodity img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-    .commodity-details {
-      padding: 1.5rem;
-    }
-    .commodity-details h2 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-      color: #1e1e1e;
-    }
-    .commodity-details p {
-      margin-bottom: 1rem;
-      color: #555;
-    }
-    .invest-btn {
-      display: inline-block;
-      background-color: #1e1e1e;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    .invest-btn:hover {
-      background-color: #333;
-    }
-    footer {
-      background-color: #1e1e1e;
-      color: white;
+      align-items: center;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 4rem 2rem 2rem;
+      background-color: #fff;
     }
-    .socials {
-      margin: 1rem 0;
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2d3436;
     }
-    .socials a {
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #636e72;
+    }
+
+    .hero button {
+      background-color: #27ae60;
       color: white;
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
-      transition: color 0.3s;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .socials a:hover {
-      color: #fca311;
+
+    .hero button:hover {
+      background-color: #219150;
+    }
+
+    .steps {
+      background-color: #fefefe;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .step {
+      max-width: 250px;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .step h2 {
+      color: #27ae60;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      color: #636e72;
+      font-size: 0.95rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background-color: #f9f9f9;
+    }
+
+    .feature {
+      max-width: 300px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .feature img {
+      max-width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .feature h3 {
+      margin-bottom: 0.5rem;
+      color: #2d3436;
+    }
+
+    .feature p {
+      font-size: 0.95rem;
+      color: #636e72;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
+      color: #636e72;
+      font-size: 0.9rem;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #27ae60;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Invest in Food Commodities</h1>
-    <p>Turn your everyday spending into smart investments.</p>
+    <div class="logo">ChowVest</div>
+    <nav>
+      <a href="about.html">About Us</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Sign Up</a>
+    </nav>
   </header>
 
-  <div class="container">
-    <div class="commodity">
+  <section class="hero">
+    <h1>Invest in Food, Watch Your Wealth Grow</h1>
+    <p>Turn your daily staples into digital assets. With ChowVest, you invest in food without the stress of storage or spoilage. Withdraw anytime as cash.</p>
+    <a href="invest.html"><button>Start Investing</button></a>
+  </section>
+
+  <section class="steps">
+    <div class="step">
+      <h2>1. Invest in Food</h2>
+      <p>Choose from rice, beans, garri, and more. Start with as low as ₦2,000.</p>
+    </div>
+    <div class="step">
+      <h2>2. We Handle Storage</h2>
+      <p>Your investment is physically stored and managed by us. No spoilage, no hassle.</p>
+    </div>
+    <div class="step">
+      <h2>3. Watch It Grow</h2>
+      <p>Track your food asset’s value and withdraw profits anytime, straight to your bank.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
       <img src="images/rice.jpg" alt="Rice">
-      <div class="commodity-details">
-        <h2>Rice</h2>
-        <p>Invest in one of the most consumed staples in Nigeria. Secure your stake in the food economy.</p>
-        <a href="#" class="invest-btn">Invest Now</a>
-      </div>
+      <h3>Rice</h3>
+      <p>Starting from ₦2,000. Earn passive income on Nigeria’s most loved staple.</p>
     </div>
-
-    <div class="commodity">
+    <div class="feature">
       <img src="images/beans.jpg" alt="Beans">
-      <div class="commodity-details">
-        <h2>Beans</h2>
-        <p>Beans are rich in nutrients and have high demand. Get returns while supporting food security.</p>
-        <a href="#" class="invest-btn">Invest Now</a>
-      </div>
+      <h3>Beans</h3>
+      <p>Beans never go out of demand. Invest smart, grow steady.</p>
     </div>
-
-    <div class="commodity">
+    <div class="feature">
       <img src="images/garri.jpg" alt="Garri">
-      <div class="commodity-details">
-        <h2>Garri</h2>
-        <p>A resilient and versatile commodity in Nigerian homes. Invest in storage and earn from price surges.</p>
-        <a href="#" class="invest-btn">Invest Now</a>
-      </div>
+      <h3>Garri</h3>
+      <p>Affordable entry. Reliable returns. Let your Garri bag the gains.</p>
     </div>
-  </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 ChowVest. All rights reserved.</p>
-    <div class="socials">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+    &copy; 2025 ChowVest. Built for the future of food investing.<br><br>
+    <div class="social-icons">
+      <a href="https://t.me/yourchannel" target="_blank">Telegram</a> |
+      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a> |
+      <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
+      <a href="mailto:support@chowvest.com">Email</a>
     </div>
   </footer>
 </body>
+
 </html>
