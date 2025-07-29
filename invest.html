@@ -1,249 +1,155 @@
-<!-- Your full updated HTML with image paths fixed -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ChowVest - Invest in Food, Watch Your Wealth Grow</title>
+  <title>Invest in Commodities - ChowVest</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fef9f4;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 0;
       color: #333;
     }
 
     header {
-      background-color: #27ae60;
+      background-color: #1e3a8a;
+      padding: 20px;
       color: white;
-      padding: 1.5rem 2rem;
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    main {
+    .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 30px 20px;
     }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+    h2 {
+      font-size: 26px;
+      color: #1e3a8a;
+      margin-bottom: 20px;
     }
 
     .card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      padding: 1.5rem;
-      max-width: 300px;
-      text-align: center;
-      transition: transform 0.2s;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.01);
     }
 
     .card img {
       width: 100%;
-      height: 180px;
+      max-height: 240px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
     }
 
-    .card h3 {
-      margin: 0.5rem 0;
-      font-size: 1.3rem;
-      color: #2d3436;
+    .card-content {
+      padding: 20px;
     }
 
-    .card p {
-      color: #636e72;
-      font-size: 0.95rem;
+    .card-content h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1e3a8a;
     }
 
-    .card a {
+    .card-content p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .invest-btn {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #27ae60;
+      background-color: #1e3a8a;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .card a:hover {
-      background-color: #219150;
-    }
-
-    .info-box {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      padding: 2rem;
-      margin: 3rem auto;
-      max-width: 700px;
-    }
-
-    .info-box h2 {
-      text-align: center;
-      color: #27ae60;
-      margin-bottom: 1rem;
-    }
-
-    .info-box ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      color: #555;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-
-    .step {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .step h3 {
-      margin: 0.5rem 0;
-      color: #2d3436;
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .cta a {
-      background-color: #27ae60;
-      color: white;
-      padding: 1rem 2rem;
+      padding: 12px 24px;
       border-radius: 10px;
-      text-decoration: none;
-      font-size: 1.1rem;
+      transition: background 0.3s ease;
     }
 
-    .cta a:hover {
-      background-color: #219150;
+    .invest-btn:hover {
+      background-color: #3b82f6;
     }
 
     footer {
-      background-color: #f1f1f1;
+      background-color: #1e3a8a;
+      padding: 15px;
+      color: white;
       text-align: center;
-      padding: 1.5rem;
-      color: #777;
-      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        flex-direction: row;
+      }
+
+      .card img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-content {
+        width: 50%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>ChowVest</h1>
-    <p>Invest in Food, Watch Your Wealth Grow</p>
-  </header>
+<header>
+  <h1>ChowVest - Invest in Commodities</h1>
+</header>
 
-  <main>
-    <section class="hero">
-      <h2>Turn Everyday Food into a Wealth-Building Asset</h2>
-      <p>Buy and hold real commodities. We store it for you, and you earn without lifting a finger.</p>
-    </section>
+<div class="container">
+  <h2>Select a Commodity</h2>
 
-    <section class="grid">
-      <div class="card">
-        <img src="/images/rice.jpeg" alt="Rice">
-        <h3>Rice</h3>
-        <p>Invest in Nigeria’s favorite staple and earn as prices rise.</p>
-        <a href="invest.html#rice">Invest in Rice</a>
-      </div>
-
-      <div class="card">
-        <img src="/images/beans.jpeg" alt="Beans">
-        <h3>Beans</h3>
-        <p>Hold beans like crypto—only edible and always in demand.</p>
-        <a href="invest.html#beans">Invest in Beans</a>
-      </div>
-
-      <div class="card">
-        <img src="/images/garri.jpeg" alt="Garri">
-        <h3>Garri</h3>
-        <p>Affordable to start. Stable and profitable as food prices climb.</p>
-        <a href="invest.html#garri">Invest in Garri</a>
-      </div>
-    </section>
-
-    <section class="info-box">
-      <h2>Current Prices</h2>
-      <ul>
-        <li>Rice – ₦1,200/kg</li>
-        <li>Beans – ₦1,400/kg</li>
-        <li>Garri – ₦650/kg</li>
-      </ul>
-
-      <h2 style="margin-top: 2rem;">Why ChowVest?</h2>
-      <ul>
-        <li>✔ Invest in real food stored safely for you</li>
-        <li>✔ Skip the stress of warehousing or spoilage</li>
-        <li>✔ Watch your investment grow with inflation</li>
-        <li>✔ Withdraw as cash anytime</li>
-      </ul>
-    </section>
-
-    <section class="steps">
-      <div class="step">
-        <h3>1. Choose a Commodity</h3>
-        <p>Pick from rice, beans, or garri and invest instantly.</p>
-      </div>
-      <div class="step">
-        <h3>2. We Store It</h3>
-        <p>We physically store your food safely and securely.</p>
-      </div>
-      <div class="step">
-        <h3>3. Watch it Grow</h3>
-        <p>Prices go up. You cash out or gift it anytime—simple.</p>
-      </div>
-    </section>
-
-    <div class="cta">
-      <a href="register.html">Create Free Account</a>
+  <div class="card">
+    <img src="images/rice.jpeg" alt="Rice">
+    <div class="card-content">
+      <h3>Rice</h3>
+      <p>Invest in one of Nigeria's most consumed staples. Secure your wealth with high-demand, high-turnover food security assets.</p>
+      <p><strong>Price per Unit:</strong> ₦20,000</p>
+      <a class="invest-btn" href="#">Invest in Rice</a>
     </div>
-  </main>
+  </div>
 
-  <footer>
-    &copy; 2025 ChowVest. All rights reserved.
-  </footer>
+  <div class="card">
+    <img src="images/beans.jpeg" alt="Beans">
+    <div class="card-content">
+      <h3>Beans</h3>
+      <p>Beans are a household favorite across the country. This stable commodity can anchor your portfolio with consistency.</p>
+      <p><strong>Price per Unit:</strong> ₦28,000</p>
+      <a class="invest-btn" href="#">Invest in Beans</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/garri.jpeg" alt="Garri">
+    <div class="card-content">
+      <h3>Garri</h3>
+      <p>Garri is a national staple with high liquidity. Take a bite of consistent returns by investing in everyday consumption.</p>
+      <p><strong>Price per Unit:</strong> ₦15,000</p>
+      <a class="invest-btn" href="#">Invest in Garri</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 ChowVest. All rights reserved.
+</footer>
 
 </body>
 </html>
