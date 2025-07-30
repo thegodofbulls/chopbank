@@ -1,130 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Chowvest</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChowVest - Invest in Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #fffdf5, #fff);
+      color: #333;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #228b22;
-      padding: 20px;
-      color: white;
-      text-align: center;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      padding: 15px 20px;
-      display: inline-block;
-    }
-
-    nav a:hover {
-      background-color: #228b22;
-      color: white;
-    }
-
-    .container {
-      padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
-      background-color: #fff;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .section {
-      margin-bottom: 40px;
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c3e50;
     }
 
-    .section h2 {
-      color: #228b22;
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
     }
 
-    footer {
-      background-color: #222;
-      color: #eee;
-      padding: 30px 20px;
+    nav ul li a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: url('images/food-bg.jpg') center/cover no-repeat;
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero a {
+      text-decoration: none;
+      background-color: #ff914d;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .hero a:hover {
+      background-color: #ff6e1a;
+    }
+
+    .products {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 20px;
       text-align: center;
     }
 
-    .social-icons {
-      margin-top: 15px;
+    .product h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #2c3e50;
     }
 
-    .social-icons img {
+    .product p {
+      font-size: 15px;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fefefe;
+      border-top: 1px solid #eee;
+      margin-top: 80px;
+    }
+
+    footer .socials {
+      margin: 20px 0;
+    }
+
+    footer .socials img {
       width: 30px;
       margin: 0 10px;
       vertical-align: middle;
+      transition: opacity 0.3s;
+    }
+
+    footer .socials img:hover {
+      opacity: 0.7;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
-
 <body>
+
+  <!-- Navigation -->
   <header>
-    <h1>About Chowvest</h1>
-    <p>We're making food an asset class.</p>
+    <nav>
+      <div class="logo">ChowVest</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="invest.html">Invest</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="invest.html">Invest</a>
-    <a href="about.html">About</a>
-  </nav>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Turn Your Food Budget Into Profits</h1>
+      <p>Invest in everyday essentials like rice, beans, and garri — backed by real inventory and real demand.</p>
+      <a href="invest.html">Start Investing</a>
+    </div>
+  </section>
 
-  <div class="container">
-    <div class="section">
-      <h2>Our Mission</h2>
-      <p>To help everyday people grow wealth by investing in the food they know, trust, and rely on.</p>
+  <!-- Product Grid -->
+  <section class="products">
+    <div class="product">
+      <img src="images/rice.jpg" alt="Rice">
+      <div class="product-content">
+        <h3>Rice</h3>
+        <p>Stable demand, steady value — rice is always a wise move.</p>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>Our Vision</h2>
-      <p>To become the go-to platform in Africa for food-based investments, starting with rice, beans, and garri.</p>
+    <div class="product">
+      <img src="images/beans.jpg" alt="Beans">
+      <div class="product-content">
+        <h3>Beans</h3>
+        <p>High in protein, high in demand — beans give long-term returns.</p>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>How It Works</h2>
-      <ul>
-        <li><strong>Choose a Commodity</strong> – Pick from rice, beans, or garri.</li>
-        <li><strong>Invest</strong> – Buy a stake in real physical goods stored securely.</li>
-        <li><strong>Grow</strong> – Watch your investment grow as prices go up.</li>
-      </ul>
+    <div class="product">
+      <img src="images/garri.jpg" alt="Garri">
+      <div class="product-content">
+        <h3>Garri</h3>
+        <p>Highly consumed and loved in every home. Garri is gold.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Why Food?</h2>
-      <p>Food never goes out of demand. Unlike volatile markets, staple foods are always moving — on the streets, in homes, and across markets. We’re turning that everyday demand into smart financial value for you.</p>
-    </div>
-
-    <div class="section">
-      <h2>Our Story</h2>
-      <p>Chowvest started with a simple idea: What if you could invest in something as essential as food? From a small warehouse in Nigeria, we’ve built a platform where people can grow their wealth through practical, real-world assets.</p>
-    </div>
-  </div>
-
+  <!-- Footer -->
   <footer>
-    <p>Contact us: chowvestng@gmail.com | t.me/chowvest</p>
-    <div class="social-icons">
-      <img src="images/telegram.svg" alt="Telegram" />
-      <img src="images/mail.svg" alt="Mail" />
+    <div class="socials">
+      <a href="https://t.me/chowvest" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
+      <a href="mailto:support@chowvest.com"><img src="images/email.svg" alt="Email"></a>
     </div>
-    <p>&copy; 2025 Chowvest. All rights reserved.</p>
+    <p>&copy; 2025 ChowVest. Built for the people, with real food.</p>
   </footer>
-</body>
 
+</body>
 </html>
