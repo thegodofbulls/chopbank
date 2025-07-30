@@ -1,173 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChowVest - Invest in Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>About Chowvest</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff;
-      color: #333;
+      background-color: #f9f9f9;
     }
 
     header {
-      background-color: #f8f8f8;
-      padding: 20px 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      background-color: #228b22;
+      padding: 20px;
+      color: white;
+      text-align: center;
     }
 
     nav {
-      max-width: 1000px;
-      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    nav div {
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
+    nav a {
       text-decoration: none;
       color: #333;
-      font-weight: 500;
+      padding: 15px 20px;
+      display: inline-block;
     }
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
+    nav a:hover {
+      background-color: #228b22;
+      color: white;
     }
 
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #fff;
     }
 
-    .hero p {
-      font-size: 18px;
+    .section {
       margin-bottom: 40px;
     }
 
-    .hero a {
-      background-color: #2c3e50;
-      color: #fff;
-      padding: 12px 28px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
+    .section h2 {
+      color: #228b22;
     }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    .product {
-      text-align: center;
-      padding: 20px;
-      border: 1px solid #eee;
-      border-radius: 12px;
-    }
-
-    .product img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-
-    .product h3 {
-      margin: 10px 0 5px;
-    }
-
-    .footer {
-      text-align: center;
+    footer {
+      background-color: #222;
+      color: #eee;
       padding: 30px 20px;
-      background-color: #f8f8f8;
-      border-top: 1px solid #eee;
-      margin-top: 60px;
+      text-align: center;
     }
 
-    .footer .socials {
-      margin: 16px 0;
+    .social-icons {
+      margin-top: 15px;
     }
 
-    .footer .socials img {
-      width: 28px;
-      height: 28px;
+    .social-icons img {
+      width: 30px;
       margin: 0 10px;
       vertical-align: middle;
     }
   </style>
 </head>
-<body>
 
-  <!-- Navigation -->
+<body>
   <header>
-    <nav>
-      <div>ChowVest</div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="invest.html">Invest</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
+    <h1>About Chowvest</h1>
+    <p>We're making food an asset class.</p>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Invest in Food, Watch Your Wealth Grow</h1>
-    <p>Put your money in essential food staples like rice, beans, and garri — and grow your investment with real value.</p>
-    <a href="invest.html">Start Investing</a>
-  </section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="invest.html">Invest</a>
+    <a href="about.html">About</a>
+  </nav>
 
-  <!-- Product Section -->
-  <section class="products">
-    <div class="product">
-      <img src="images/rice.jpg" alt="Rice">
-      <h3>Rice</h3>
-      <p>Daily consumption and price stability make rice a strong store of value.</p>
+  <div class="container">
+    <div class="section">
+      <h2>Our Mission</h2>
+      <p>To help everyday people grow wealth by investing in the food they know, trust, and rely on.</p>
     </div>
-    <div class="product">
-      <img src="images/beans.jpg" alt="Beans">
-      <h3>Beans</h3>
-      <p>Beans are protein-packed and widely demanded across Nigeria.</p>
-    </div>
-    <div class="product">
-      <img src="images/garri.jpg" alt="Garri">
-      <h3>Garri</h3>
-      <p>A household staple. Invest in garri, the king of all backup meals.</p>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 ChowVest. All rights reserved.</p>
-    <div class="socials">
-      <a href="https://t.me/chowvest" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
-      <a href="mailto:support@chowvest.com"><img src="images/email.svg" alt="Email"></a>
+    <div class="section">
+      <h2>Our Vision</h2>
+      <p>To become the go-to platform in Africa for food-based investments, starting with rice, beans, and garri.</p>
     </div>
+
+    <div class="section">
+      <h2>How It Works</h2>
+      <ul>
+        <li><strong>Choose a Commodity</strong> – Pick from rice, beans, or garri.</li>
+        <li><strong>Invest</strong> – Buy a stake in real physical goods stored securely.</li>
+        <li><strong>Grow</strong> – Watch your investment grow as prices go up.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Why Food?</h2>
+      <p>Food never goes out of demand. Unlike volatile markets, staple foods are always moving — on the streets, in homes, and across markets. We’re turning that everyday demand into smart financial value for you.</p>
+    </div>
+
+    <div class="section">
+      <h2>Our Story</h2>
+      <p>Chowvest started with a simple idea: What if you could invest in something as essential as food? From a small warehouse in Nigeria, we’ve built a platform where people can grow their wealth through practical, real-world assets.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Contact us: chowvestng@gmail.com | t.me/chowvest</p>
+    <div class="social-icons">
+      <img src="images/telegram.svg" alt="Telegram" />
+      <img src="images/mail.svg" alt="Mail" />
+    </div>
+    <p>&copy; 2025 Chowvest. All rights reserved.</p>
   </footer>
-
 </body>
+
 </html>
