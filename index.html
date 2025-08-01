@@ -29,15 +29,33 @@
       color: #27ae60;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
-      margin-left: 1.5rem;
+      margin-left: 1rem;
       text-decoration: none;
       color: #27ae60;
       font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      background-color: #e8f5e9;
+    }
+
+    .signup-button {
+      background-color: #27ae60;
+      color: white;
+      font-weight: bold;
+    }
+
+    .signup-button:hover {
+      background-color: #219150;
     }
 
     .hero {
@@ -156,6 +174,10 @@
       font-size: 1.2rem;
     }
 
+    .social-icons img {
+      vertical-align: middle;
+    }
+
     .social-icons a:hover {
       text-decoration: underline;
     }
@@ -166,9 +188,11 @@
   <header>
     <div class="logo">ChowVest</div>
     <nav>
-      <a href="about.html">About Us</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="invest.html">Invest</a>
       <a href="login.html">Login</a>
-      <a href="register.html">Sign Up</a>
+      <a href="register.html" class="signup-button">Sign Up</a>
     </nav>
   </header>
 
@@ -211,24 +235,24 @@
     </div>
   </section>
 
- <footer>
-  &copy; 2025 ChowVest. Built for the future of food investing.<br><br>
-  <div class="social-icons">
-    <a href="https://t.me/yourchannel" target="_blank">
-      <img src="images/telegram.svg" alt="Telegram" width="24" height="24">
-    </a>
-    <a href="https://instagram.com/yourprofile" target="_blank">
-      <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
-    </a>
-    <a href="https://twitter.com/yourprofile" target="_blank">
-      <img src="images/twitter.svg" alt="Twitter" width="24" height="24">
-    </a>
-    <a href="mailto:support@chowvest.com">
-      <img src="images/email.svg" alt="Email" width="24" height="24">
-    </a>
-  </div>
-</footer>
+  <footer>
+    &copy; 2025 ChowVest. Built for the future of food investing.<br><br>
+    <div class="social-icons">
+      <a href="https://t.me/yourchannel" target="_blank">
+        <img src="images/telegram.svg" alt="Telegram" width="24" height="24">
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank">
+        <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank">
+        <img src="images/twitter.svg" alt="Twitter" width="24" height="24">
+      </a>
+      <a href="mailto:support@chowvest.com">
+        <img src="images/email.svg" alt="Email" width="24" height="24">
+      </a>
+    </div>
+  </footer>
 
 </body>
 
-</html>        
+</html>
