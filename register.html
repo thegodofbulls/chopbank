@@ -1,101 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chowvest - Sign Up</title>
-  <style>
-    body {
-      background-color: #f7f7f7;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 400px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #27ae60;
-    }
-
-    input {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background: #27ae60;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    p {
-      margin-top: 1rem;
-      color: #555;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>Join Chowvest</h2>
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
-    <button id="signup">Sign Up</button>
-    <p id="message"></p>
-  </div>
-
+  <meta charset="UTF-8">
+  <title>Sign Up - ChowVest</title>
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-    // ✅ Replace these with your Firebase config values
     const firebaseConfig = {
       apiKey: "AIzaSyAJwggqViIS8ifUfRSM4wdvvev8qK1UnPo",
       authDomain: "chowvestapp.firebaseapp.com",
       projectId: "chowvestapp",
       storageBucket: "chowvestapp.appspot.com",
       messagingSenderId: "127370069696",
-      appId: "1:127370069696:web:a8aaffa4ea1b04d66e4f25"
+      appId: "1:127370069696:web:a8aaffa4ea1b04d66e4f25",
+      measurementId: "G-9CGRQC345K"
     };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    document.getElementById('signup').addEventListener('click', async () => {
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const msg = document.getElementById('message');
+    window.signUp = async function() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("message");
+
+      if (password.length < 6) {
+        message.style.color = "red";
+        message.innerText = "Password must be at least 6 characters.";
+        return;
+      }
 
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await sendEmailVerification(userCredential.user);
-        msg.textContent = "Signup successful! Verification email sent.";
-        msg.style.color = "green";
+        message.style.color = "green";
+        message.innerText = "Signup successful! Verification email sent. Please check your inbox.";
       } catch (error) {
-        msg.textContent = error.message;
-        msg.style.color = "red";
+        message.style.color = "red";
+        message.innerText = "Error: " + error.message;
       }
-    });
+    };
   </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fefdfd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #2f855a;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2f855a;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #276749;
+    }
+    #message {
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Create Your ChowVest Account</h2>
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <input type="password" id="password" placeholder="Enter a strong password" required />
+    <button onclick="signUp()">Sign Up</button>
+    <div id="message"></div>
+  </div>
 </body>
 </html>
