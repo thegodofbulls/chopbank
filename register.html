@@ -3,119 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Signup - Chowvest</title>
+  <title>Chowvest - Sign Up</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f3f3f3;
-      margin: 0;
-      padding: 0;
+      background-color: #f7f7f7;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 100%;
       max-width: 400px;
-      margin: 50px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
-      color: #228b22;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      color: #27ae60;
     }
 
-    input[type="tel"],
-    input[type="text"],
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
     button {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background-color: #228b22;
+      padding: 0.8rem;
+      background: #27ae60;
       color: white;
       border: none;
+      border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    button:hover {
-      background-color: #1a701a;
-    }
-
-    .hidden {
-      display: none;
+    p {
+      margin-top: 1rem;
+      color: #555;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Sign Up to Chowvest</h2>
-
-    <div id="step1">
-      <label>Phone Number</label>
-      <input type="tel" id="phone" placeholder="+234XXXXXXXXXX" required />
-      <button onclick="sendCode()">Send Verification Code</button>
-    </div>
-
-    <div id="step2" class="hidden">
-      <label>Enter Verification Code</label>
-      <input type="text" id="code" placeholder="Enter code" required />
-      <button onclick="verifyCode()">Verify & Continue</button>
-    </div>
+    <h2>Join Chowvest</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="signup">Sign Up</button>
+    <p id="message"></p>
   </div>
 
-  <script>
-    const sentCode = "123456"; // Fake hardcoded code for now
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-    function sendCode() {
-      const phone = document.getElementById("phone").value;
-      if (!phone.startsWith("+") || phone.length < 10) {
-        alert("Enter a valid phone number with country code");
-        return;
+    // ✅ Replace these with your Firebase config values
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJwggqViIS8ifUfRSM4wdvvev8qK1UnPo",
+      authDomain: "chowvestapp.firebaseapp.com",
+      projectId: "chowvestapp",
+      storageBucket: "chowvestapp.appspot.com",
+      messagingSenderId: "127370069696",
+      appId: "1:127370069696:web:a8aaffa4ea1b04d66e4f25"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('signup').addEventListener('click', async () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const msg = document.getElementById('message');
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await sendEmailVerification(userCredential.user);
+        msg.textContent = "Signup successful! Verification email sent.";
+        msg.style.color = "green";
+      } catch (error) {
+        msg.textContent = error.message;
+        msg.style.color = "red";
       }
-
-      alert("Verification code sent to " + phone + " (for now, use: 123456)");
-      document.getElementById("step1").classList.add("hidden");
-      document.getElementById("step2").classList.remove("hidden");
-    }
-
-    function verifyCode() {
-      const code = document.getElementById("code").value;
-      if (code === sentCode) {
-        alert("Phone verified successfully!");
-        window.location.href = "invest.html"; // or dashboard.html
-      } else {
-        alert("Incorrect code. Try again.");
-      }
-    }
-  </script>  <script type="module">
-  // Import needed Firebase functions from the CDN
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-  // Your Firebase config (from Firebase console)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  console.log("Firebase initialized!");
-</script>
-
+    });
+  </script>
 </body>
 </html>
