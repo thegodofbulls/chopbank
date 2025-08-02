@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up - ChowVest</title>
+  <title>ChowVest – Sign Up</title>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAJwggqViIS8ifUfRSM4wdvvev8qK1UnPo",
@@ -19,15 +19,18 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
     window.signUp = async function() {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
       const message = document.getElementById("message");
 
-      if (password.length < 6) {
+      const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+      if (!strongPassword.test(password)) {
         message.style.color = "red";
-        message.innerText = "Password must be at least 6 characters.";
+        message.innerText = "Password must contain uppercase, lowercase and a number.";
         return;
       }
 
@@ -35,10 +38,22 @@
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await sendEmailVerification(userCredential.user);
         message.style.color = "green";
-        message.innerText = "Signup successful! Verification email sent. Please check your inbox.";
+        message.innerText = "Signup successful! Verification email sent.";
       } catch (error) {
         message.style.color = "red";
         message.innerText = "Error: " + error.message;
+      }
+    };
+
+    window.signUpWithGoogle = async function() {
+      const message = document.getElementById("message");
+      try {
+        const result = await signInWithPopup(auth, provider);
+        message.style.color = "green";
+        message.innerText = "Google sign-in successful! Welcome " + result.user.displayName;
+      } catch (error) {
+        message.style.color = "red";
+        message.innerText = "Google sign-in failed: " + error.message;
       }
     };
   </script>
@@ -85,6 +100,13 @@
     button:hover {
       background-color: #276749;
     }
+    .google-btn {
+      background-color: #db4437;
+      margin-top: 10px;
+    }
+    .google-btn:hover {
+      background-color: #c23321;
+    }
     #message {
       margin-top: 1rem;
       text-align: center;
@@ -96,7 +118,8 @@
     <h2>Create Your ChowVest Account</h2>
     <input type="email" id="email" placeholder="Enter your email" required />
     <input type="password" id="password" placeholder="Enter a strong password" required />
-    <button onclick="signUp()">Sign Up</button>
+    <button onclick="signUp()">Sign Up with Email</button>
+    <button class="google-btn" onclick="signUpWithGoogle()">Sign Up with Google</button>
     <div id="message"></div>
   </div>
 </body>
