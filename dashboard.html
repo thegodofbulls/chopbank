@@ -1,0 +1,97 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Chowvest</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #fefefe;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    button {
+      background-color: #3c65f5;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #2a4bd3;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Welcome to Chowvest 👋</h2>
+    <p id="userEmail">Loading user info...</p>
+    <button id="logoutBtn">Log Out</button>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJwggqViIS8ifUfRSM4wdvvev8qK1UnPo",
+      authDomain: "chowvestapp.firebaseapp.com",
+      projectId: "chowvestapp",
+      storageBucket: "chowvestapp.appspot.com",
+      messagingSenderId: "127370069696",
+      appId: "1:127370069696:web:a8aaffa4ea1b04d66e4f25",
+      measurementId: "G-9CGRQC345K"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userEmail = document.getElementById("userEmail");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userEmail.textContent = `Logged in as: ${user.email}`;
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      });
+    });
+  </script>
+</body>
+</html>
