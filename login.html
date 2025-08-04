@@ -80,7 +80,7 @@
     <div id="error" class="error"></div>
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
-    <button onclick="login()">Login</button>
+    <button id="loginBtn">Login</button>
     <div class="signup-link">
       Don't have an account? <a href="signup.html">Sign up here</a>
     </div>
@@ -103,18 +103,18 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    async function login() {
+    document.getElementById("loginBtn").addEventListener("click", async () => {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
       const errorDiv = document.getElementById("error");
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "dashboard.html";
+        window.location.href = "dashboard.html"; // Redirect after successful login
       } catch (error) {
         errorDiv.textContent = error.message;
       }
-    }
+    });
   </script>
 </body>
 </html>
