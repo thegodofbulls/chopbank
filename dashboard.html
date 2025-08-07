@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <script defer>
-      function toggleMenu() {
-        const menu = document.getElementById("mobile-menu");
-        menu.classList.toggle("hidden");
 
 <head>
   <meta charset="UTF-8">
@@ -24,26 +15,6 @@
       .mobile-menu {
         display: none;
       }
-    </script>
-  </head>
-  <body class="bg-gray-100">
-    <!-- Header -->
-    <header class="bg-green-700 text-white shadow p-4 flex items-center justify-between">
-      <div class="text-xl font-bold">ChowVest</div>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#" class="hover:text-gray-300">Home</a>
-        <a href="#" class="hover:text-gray-300">Profile</a>
-        <a href="#" class="hover:text-gray-300">Investments</a>
-        <a href="#" class="hover:text-gray-300">Logout</a>
-      </nav>
-      <div class="md:hidden">
-        <button onclick="toggleMenu()" class="focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </header>
       .mobile-menu.active {
         display: block;
       }
@@ -51,12 +22,6 @@
   </style>
 </head>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-green-700 text-white p-4">
-      <a href="#" class="block py-1">Home</a>
-      <a href="#" class="block py-1">Profile</a>
-      <a href="#" class="block py-1">Investments</a>
-      <a href="#" class="block py-1">Logout</a>
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- Navbar -->
@@ -79,9 +44,6 @@
     <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Investments</a>
   </nav>
 
-    <!-- Main Content -->
-    <main class="p-6">
-      <h1 class="text-2xl font-bold text-green-700 mb-4">Welcome Back!</h1>
   <!-- Main Content -->
   <main class="p-6">
     <section class="mb-6">
@@ -89,10 +51,6 @@
       <p>Track your food investments and grow your wealth.</p>
     </section>
 
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bg-white p-4 rounded shadow">
-          <h2 class="text-lg font-semibold text-green-700">Investment Summary</h2>
-          <p class="mt-2 text-gray-700">You have invested in 3 food items: Rice, Beans, and Garri.</p>
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-4">Your Portfolio</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -100,16 +58,10 @@
           <h3 class="font-semibold">Rice</h3>
           <p class="text-xl font-bold">₦50,000</p>
         </div>
-        <div class="bg-white p-4 rounded shadow">
-          <h2 class="text-lg font-semibold text-green-700">Your Returns</h2>
-          <p class="mt-2 text-gray-700">Total returns so far: ₦18,500</p>
         <div class="p-4 bg-[#e8e4e6] rounded shadow">
           <h3 class="font-semibold">Beans</h3>
           <p class="text-xl font-bold">₦30,000</p>
         </div>
-        <div class="bg-white p-4 rounded shadow">
-          <h2 class="text-lg font-semibold text-green-700">Next Payout</h2>
-          <p class="mt-2 text-gray-700">August 20, 2025</p>
         <div class="p-4 bg-[#e8e4e6] rounded shadow">
           <h3 class="font-semibold">Garri</h3>
           <p class="text-xl font-bold">₦20,000</p>
@@ -126,13 +78,6 @@
       </ul>
     </section>
 
-      <div class="mt-8 bg-white p-6 rounded shadow">
-        <h2 class="text-xl font-bold text-green-700 mb-4">Recent Activity</h2>
-        <ul class="space-y-2">
-          <li class="border-b pb-2">Invested ₦5,000 in Rice - Aug 5</li>
-          <li class="border-b pb-2">Invested ₦3,000 in Garri - Aug 3</li>
-          <li class="border-b pb-2">Received payout of ₦6,000 - Aug 1</li>
-        </ul>
     <section>
       <h2 class="text-lg font-semibold mb-4">Suggestions</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -145,8 +90,6 @@
           <p>Start recurring investments to automate your savings.</p>
         </div>
       </div>
-    </main>
-  </body>
     </section>
   </main>
 
