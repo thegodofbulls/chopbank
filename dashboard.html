@@ -1,97 +1,60 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to Chowvest</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      background-color: #fefefe;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .card h2 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #555;
-    }
-
-    button {
-      background-color: #3c65f5;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    button:hover {
-      background-color: #2a4bd3;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chowvest Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="card">
-    <h2>Welcome to Chowvest 👋</h2>
-    <p id="userEmail">Loading user info...</p>
-    <button id="logoutBtn">Log Out</button>
+
+<body class="bg-gray-100 font-[Inter]">
+  <div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md p-4 space-y-6">
+      <h1 class="text-xl font-bold text-green-600">Chowvest</h1>
+      <nav class="space-y-2">
+        <a href="#" class="block py-2 px-4 rounded hover:bg-green-50 text-green-700 font-semibold">Dashboard</a>
+        <a href="#" class="block py-2 px-4 rounded hover:bg-green-50">My Profile</a>
+        <a href="#" class="block py-2 px-4 rounded hover:bg-green-50">Investments</a>
+        <a href="#" class="block py-2 px-4 rounded hover:bg-green-50">Transactions</a>
+        <a href="#" class="block py-2 px-4 rounded hover:bg-green-50">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <header class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Welcome, Zaan</h2>
+        <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</button>
+      </header>
+
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white shadow p-4 rounded">
+          <h3 class="text-gray-600">Total Investment</h3>
+          <p class="text-xl font-bold text-green-600">₦150,000</p>
+        </div>
+        <div class="bg-white shadow p-4 rounded">
+          <h3 class="text-gray-600">Profit</h3>
+          <p class="text-xl font-bold text-green-600">₦25,000</p>
+        </div>
+        <div class="bg-white shadow p-4 rounded">
+          <h3 class="text-gray-600">Active Commodities</h3>
+          <p class="text-xl font-bold text-green-600">Rice, Beans</p>
+        </div>
+      </section>
+
+      <section class="bg-white shadow p-6 rounded">
+        <h3 class="text-xl font-bold mb-4">Recent Activity</h3>
+        <ul class="divide-y divide-gray-200">
+          <li class="py-2">+ Invested ₦50,000 in Beans - Aug 5</li>
+          <li class="py-2">+ Invested ₦100,000 in Rice - Aug 2</li>
+          <li class="py-2">- Withdrawn ₦10,000 Profit - Aug 1</li>
+        </ul>
+      </section>
+    </main>
   </div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAJwggqViIS8ifUfRSM4wdvvev8qK1UnPo",
-      authDomain: "chowvestapp.firebaseapp.com",
-      projectId: "chowvestapp",
-      storageBucket: "chowvestapp.appspot.com",
-      messagingSenderId: "127370069696",
-      appId: "1:127370069696:web:a8aaffa4ea1b04d66e4f25",
-      measurementId: "G-9CGRQC345K"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    const userEmail = document.getElementById("userEmail");
-    const logoutBtn = document.getElementById("logoutBtn");
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        userEmail.textContent = `Logged in as: ${user.email}`;
-      } else {
-        window.location.href = "login.html";
-      }
-    });
-
-    logoutBtn.addEventListener("click", () => {
-      signOut(auth).then(() => {
-        window.location.href = "login.html";
-      });
-    });
-  </script>
 </body>
+
 </html>
