@@ -1,48 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chowvest Dashboard</title>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <style>
-    .menu-icon {
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .mobile-menu {
-        display: none;
-      }
-      .mobile-menu.active {
-        display: block;
-      }
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- Navbar -->
   <header class="bg-[#004643] text-white p-4 flex justify-between items-center">
     <h1 class="text-2xl font-bold">Chowvest</h1>
-    <div class="md:hidden menu-icon" onclick="toggleMenu()">
-      <i class="fas fa-bars text-2xl"></i>
-    </div>
-    <nav class="hidden md:flex space-x-4">
+    <nav class="flex space-x-4">
       <a href="#" class="hover:text-yellow-300 flex items-center"><i class="fas fa-home mr-2"></i>Home</a>
       <a href="#" class="hover:text-yellow-300 flex items-center"><i class="fas fa-user mr-2"></i>Profile</a>
       <a href="#" class="hover:text-yellow-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Investments</a>
     </nav>
   </header>
-
-  <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="mobile-menu bg-[#004643] text-white md:hidden p-4 space-y-2">
-    <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-home mr-2"></i>Home</a>
-    <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-user mr-2"></i>Profile</a>
-    <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Investments</a>
-  </nav>
 
   <!-- Main Content -->
   <main class="p-6">
@@ -93,13 +68,5 @@
     </section>
   </main>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    }
-  </script>
-
 </body>
-
 </html>
