@@ -6,17 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chowvest Dashboard</title>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
     .menu-icon {
       cursor: pointer;
     }
-
     @media (max-width: 768px) {
       .mobile-menu {
         display: none;
       }
-
       .mobile-menu.active {
         display: block;
       }
@@ -32,30 +30,30 @@
     <div class="md:hidden menu-icon" onclick="toggleMenu()">
       <i class="fas fa-bars text-2xl"></i>
     </div>
-    <nav class="hidden md:flex space-x-6 items-center">
-      <a href="#" class="hover:text-yellow-300 flex items-center space-x-2"><i class="fas fa-home"></i><span>Home</span></a>
-      <a href="#" class="hover:text-yellow-300 flex items-center space-x-2"><i class="fas fa-user"></i><span>Profile</span></a>
-      <a href="#" class="hover:text-yellow-300 flex items-center space-x-2"><i class="fas fa-chart-line"></i><span>Investments</span></a>
+    <nav class="hidden md:flex space-x-4">
+      <a href="#" class="hover:text-yellow-300 flex items-center"><i class="fas fa-home mr-2"></i>Home</a>
+      <a href="#" class="hover:text-yellow-300 flex items-center"><i class="fas fa-user mr-2"></i>Profile</a>
+      <a href="#" class="hover:text-yellow-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Investments</a>
     </nav>
   </header>
 
   <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="mobile-menu bg-[#004643] text-white md:hidden p-4 space-y-3">
-    <a href="#" class="block hover:text-yellow-300 flex items-center space-x-2"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="#" class="block hover:text-yellow-300 flex items-center space-x-2"><i class="fas fa-user"></i><span>Profile</span></a>
-    <a href="#" class="block hover:text-yellow-300 flex items-center space-x-2"><i class="fas fa-chart-line"></i><span>Investments</span></a>
+  <nav id="mobileMenu" class="mobile-menu bg-[#004643] text-white md:hidden p-4 space-y-2">
+    <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-home mr-2"></i>Home</a>
+    <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-user mr-2"></i>Profile</a>
+    <a href="#" class="block hover:text-yellow-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Investments</a>
   </nav>
 
   <!-- Main Content -->
   <main class="p-6">
     <section class="mb-6">
       <h2 class="text-xl font-semibold mb-2">Welcome Back</h2>
-      <p class="text-gray-700">Track your food investments and grow your wealth.</p>
+      <p>Track your food investments and grow your wealth.</p>
     </section>
 
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-4">Your Portfolio</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="p-4 bg-[#e8e4e6] rounded shadow">
           <h3 class="font-semibold">Rice</h3>
           <p class="text-xl font-bold">₦50,000</p>
@@ -74,9 +72,9 @@
     <section class="mb-6">
       <h2 class="text-lg font-semibold mb-4">Recent Activity</h2>
       <ul class="space-y-2">
-        <li class="bg-gray-100 p-3 rounded shadow">✅ Invested ₦10,000 in Rice – Aug 5</li>
-        <li class="bg-gray-100 p-3 rounded shadow">⬇ Withdrew ₦5,000 from Beans – Aug 4</li>
-        <li class="bg-gray-100 p-3 rounded shadow">➕ Added ₦20,000 to Garri – Aug 2</li>
+        <li class="bg-gray-100 p-3 rounded shadow">Invested ₦10,000 in Rice - Aug 5</li>
+        <li class="bg-gray-100 p-3 rounded shadow">Withdrew ₦5,000 from Beans - Aug 4</li>
+        <li class="bg-gray-100 p-3 rounded shadow">Added ₦20,000 to Garri - Aug 2</li>
       </ul>
     </section>
 
@@ -84,11 +82,11 @@
       <h2 class="text-lg font-semibold mb-4">Suggestions</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="p-4 bg-green-100 rounded shadow">
-          <h3 class="font-semibold mb-2">🌾 Invest in Millet</h3>
+          <h3 class="font-semibold mb-2">Invest in Millet</h3>
           <p>Millet prices are rising. Consider diversifying your portfolio.</p>
         </div>
         <div class="p-4 bg-blue-100 rounded shadow">
-          <h3 class="font-semibold mb-2">🚀 New Feature</h3>
+          <h3 class="font-semibold mb-2">New Feature</h3>
           <p>Start recurring investments to automate your savings.</p>
         </div>
       </div>
