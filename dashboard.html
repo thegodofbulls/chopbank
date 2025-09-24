@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chowvest Admin Dashboard</title>
+  <title>Chowvest Dashboard</title>
   <style>
     body {
       margin: 0;
@@ -20,44 +20,19 @@
     }
 
     .dashboard {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      background-color: #2e8b57;
-      color: white;
-      padding: 2rem 1rem;
-    }
-
-    .sidebar h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      margin: 1rem 0;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-
-    .sidebar a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .content {
+      max-width: 1200px;
+      margin: auto;
       padding: 2rem;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
       margin-bottom: 2rem;
     }
@@ -73,6 +48,27 @@
     .card h3 {
       margin: 0.5rem 0;
       color: #228b22;
+    }
+
+    .actions {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .actions button {
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #228b22;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .actions button:hover {
+      background-color: #1a6e1a;
     }
 
     table {
@@ -100,75 +96,74 @@
 <body>
 
 <header>
-  <h1>Chowvest Admin Dashboard</h1>
+  <h1>Chowvest Dashboard</h1>
 </header>
 
 <div class="dashboard">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>Admin Panel</h2>
-    <a href="#">Overview</a>
-    <a href="#">Users</a>
-    <a href="#">Investments</a>
-    <a href="#">Transactions</a>
-    <a href="#">Commodities</a>
-    <a href="#">Settings</a>
+  <div class="welcome">
+    <h2>Welcome back, Hassan 👋</h2>
+    <p>Here’s your food investment summary</p>
   </div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h2>Overview</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Total Users</h3>
-        <p id="total-users">152</p>
-      </div>
-      <div class="card">
-        <h3>Total Investments</h3>
-        <p id="total-investments">₦2,450,000</p>
-      </div>
-      <div class="card">
-        <h3>Warehouse Stock</h3>
-        <p id="warehouse-stock">Rice: 500kg | Beans: 320kg | Garri: 600kg</p>
-      </div>
+  <!-- Wallet & Investments -->
+  <div class="cards">
+    <div class="card">
+      <h3>Wallet Balance</h3>
+      <p>₦120,000</p>
     </div>
-
-    <h2>Recent Transactions</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Type</th>
-          <th>Commodity</th>
-          <th>Amount</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Jane Doe</td>
-          <td>Invest</td>
-          <td>Rice</td>
-          <td>₦50,000</td>
-          <td>2025-09-20</td>
-        </tr>
-        <tr>
-          <td>John Smith</td>
-          <td>Deposit</td>
-          <td>-</td>
-          <td>₦30,000</td>
-          <td>2025-09-19</td>
-        </tr>
-        <tr>
-          <td>Amina Yusuf</td>
-          <td>Redeem</td>
-          <td>Garri</td>
-          <td>₦15,000</td>
-          <td>2025-09-18</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card">
+      <h3>Rice</h3>
+      <p>80kg (₦96,000)</p>
+    </div>
+    <div class="card">
+      <h3>Beans</h3>
+      <p>20kg (₦28,000)</p>
+    </div>
+    <div class="card">
+      <h3>Garri</h3>
+      <p>15kg (₦9,750)</p>
+    </div>
   </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button>Deposit</button>
+    <button>Withdraw</button>
+    <button>Invest More</button>
+  </div>
+
+  <!-- Transaction History -->
+  <h2>Recent Transactions</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Commodity</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Deposit</td>
+        <td>-</td>
+        <td>₦50,000</td>
+        <td>2025-09-21</td>
+      </tr>
+      <tr>
+        <td>Invest</td>
+        <td>Rice</td>
+        <td>₦30,000</td>
+        <td>2025-09-20</td>
+      </tr>
+      <tr>
+        <td>Withdraw</td>
+        <td>-</td>
+        <td>₦10,000</td>
+        <td>2025-09-18</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 </body>
