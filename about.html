@@ -16,9 +16,19 @@
 
     header {
       background-color: #228b22;
-      padding: 20px;
+      padding: 30px 20px;
       color: white;
       text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
     }
 
     nav {
@@ -33,6 +43,7 @@
       color: #333;
       padding: 15px 20px;
       display: inline-block;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
@@ -42,16 +53,48 @@
 
     .container {
       padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       background-color: #fff;
     }
 
     .section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .section h2 {
+      color: #228b22;
+      margin-bottom: 15px;
+    }
+
+    .section p, .section ul {
+      line-height: 1.6;
+      font-size: 1.05em;
+      color: #444;
+    }
+
+    .user-journey {
+      background: #f0fff0;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .user-journey h3 {
+      color: #228b22;
+      margin-bottom: 15px;
+    }
+
+    .user-journey ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .user-journey ul li {
+      margin-bottom: 12px;
+    }
+
+    .user-journey ul li strong {
       color: #228b22;
     }
 
@@ -77,7 +120,7 @@
 <body>
   <header>
     <h1>About Chowvest</h1>
-    <p>We're making food an asset class.</p>
+    <p>Turning food into wealth, one grain at a time.</p>
   </header>
 
   <nav>
@@ -89,50 +132,52 @@
   <div class="container">
     <div class="section">
       <h2>Our Mission</h2>
-      <p>To help everyday people grow wealth by investing in the food they know, trust, and rely on.</p>
+      <p>To help everyday people secure their future by investing in staple foods they already consume and trust — rice, beans, and garri. We’re making food both a necessity and an asset class.</p>
     </div>
 
     <div class="section">
       <h2>Our Vision</h2>
-      <p>To become the go-to platform in Africa for food-based investments, starting with rice, beans, and garri.</p>
+      <p>To build Africa’s most trusted food-investing platform, empowering millions to save, invest, and protect themselves from rising food costs while building wealth.</p>
     </div>
 
-    <div class="section">
-      <h2>How It Works</h2>
+    <div class="section user-journey">
+      <h3>The Chowvest Experience</h3>
       <ul>
-        <li><strong>Choose a Commodity</strong> – Pick from rice, beans, or garri.</li>
-        <li><strong>Invest</strong> – Buy a stake in real physical goods stored securely.</li>
-        <li><strong>Grow</strong> – Watch your investment grow as prices go up.</li>
+        <li><strong>Step 1: Choose Your Food</strong> — Select rice, beans, or garri from our app.</li>
+        <li><strong>Step 2: Deposit Flexibly</strong> — Connect your card or deposit any amount you have. No pressure.</li>
+        <li><strong>Step 3: Watch It Grow</strong> — As prices rise, your food asset grows in value. No inflation worries.</li>
+        <li><strong>Step 4: Redeem With Ease</strong> — When your balance is enough, get your foodstuff delivered to your door or cash out the value.</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>Why Food?</h2>
-      <p>Food never goes out of demand. Unlike volatile markets, staple foods are always moving — on the streets, in homes, and across markets. We’re turning that everyday demand into smart financial value for you.</p>
+      <p>Food is life. It never goes out of demand. Every day, markets move with staples like rice and beans, regardless of the economy. While money loses value to inflation, food always holds value. Chowvest lets you turn this everyday necessity into a shield and a source of growth.</p>
     </div>
 
     <div class="section">
       <h2>Our Story</h2>
-      <p>Chowvest started with a simple idea: What if you could invest in something as essential as food? From a small warehouse in Nigeria, we’ve built a platform where people can grow their wealth through practical, real-world assets.</p>
+      <p>Chowvest began with a simple but powerful thought: “What if people could save and invest in food directly, instead of only money?” From our small warehouse in Nigeria, we’re building a future where food is more than survival — it’s security, wealth, and opportunity for everyone.</p>
     </div>
   </div>
-<footer>
-  &copy; 2025 ChowVest. Built for the future of food investing.<br><br>
-  <div class="social-icons">
-    <a href="https://t.me/yourchannel" target="_blank">
-      <img src="images/telegram.svg" alt="Telegram" width="24" height="24">
-    </a>
-    <a href="https://instagram.com/yourprofile" target="_blank">
-      <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
-    </a>
-    <a href="https://twitter.com/yourprofile" target="_blank">
-      <img src="images/twitter.svg" alt="Twitter" width="24" height="24">
-    </a>
-    <a href="mailto:support@chowvest.com">
-      <img src="images/email.svg" alt="Email" width="24" height="24">
-    </a>
-  </div>
-</footer>
+
+  <footer>
+    &copy; 2025 ChowVest. Built for the future of food investing.<br><br>
+    <div class="social-icons">
+      <a href="https://t.me/yourchannel" target="_blank">
+        <img src="images/telegram.svg" alt="Telegram" width="24" height="24">
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank">
+        <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank">
+        <img src="images/twitter.svg" alt="Twitter" width="24" height="24">
+      </a>
+      <a href="mailto:support@chowvest.com">
+        <img src="images/email.svg" alt="Email" width="24" height="24">
+      </a>
+    </div>
+  </footer>
 </body>
 
 </html>
