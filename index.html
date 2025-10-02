@@ -1,256 +1,836 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChowPaddy - Never Run Out of Food</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fef9f4;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChowVest - Beat Food Inflation, Save Small, Eat Well</title>
+    <meta name="description" content="Save small amounts for your food and lock today's prices. Start with ₦500 and get your groceries delivered when ready.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background-color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --secondary: #ea580c;
+            --secondary-dark: #c2410c;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border: #e5e7eb;
+        }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #27ae60;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #27ae60;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    nav a:hover {
-      background-color: #e8f5e9;
-    }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
 
-    .signup-button {
-      background-color: #27ae60;
-      color: white;
-      font-weight: bold;
-    }
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
 
-    .signup-button:hover {
-      background-color: #219150;
-    }
+        .logo-icon {
+            font-size: 2rem;
+        }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-      background-color: #fff;
-    }
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #2d3436;
-    }
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #636e72;
-    }
+        .nav-link:hover {
+            color: var(--primary);
+        }
 
-    .hero button {
-      background-color: #27ae60;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
 
-    .hero button:hover {
-      background-color: #219150;
-    }
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: 0.3s;
+        }
 
-    .steps {
-      background-color: #fefefe;
-      padding: 3rem 2rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      text-align: center;
-    }
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+        }
 
-    .step {
-      max-width: 250px;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-    }
+        .promo-banner strong {
+            font-weight: 700;
+        }
 
-    .step h2 {
-      color: #27ae60;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 4rem 0;
+        }
 
-    .step p {
-      color: #636e72;
-      font-size: 0.95rem;
-    }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
 
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 3rem 2rem;
-      background-color: #f9f9f9;
-    }
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
 
-    .feature {
-      max-width: 300px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-      padding: 1.5rem;
-      text-align: center;
-    }
+        .hero-text .highlight {
+            color: var(--primary);
+        }
 
-    .feature img {
-      max-width: 100%;
-      height: 180px;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
 
-    .feature h3 {
-      margin-bottom: 0.5rem;
-      color: #2d3436;
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    .feature p {
-      font-size: 0.95rem;
-      color: #636e72;
-    }
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #fff;
-      color: #636e72;
-      font-size: 0.9rem;
-    }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
 
-    .social-icons a {
-      margin: 0 10px;
-      color: #27ae60;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+        }
 
-    .social-icons img {
-      vertical-align: middle;
-    }
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
 
-    .social-icons a:hover {
-      text-decoration: underline;
-    }
-  </style>
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--bg-light);
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* Food Products Section */
+        .food-products {
+            padding: 4rem 0;
+            background: var(--bg-light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Features */
+        .features {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .cta-section .btn:hover {
+            background: var(--bg-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .steps,
+            .products-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div class="logo">ChowPaddy</div>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="login.html">Login</a>
-      <a href="register.html" class="signup-button">Sign Up</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-icon">🍚</span>
+                        <span class="logo-text">ChowVest</span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#signup" class="btn btn-primary">Start Saving</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="hero">
-    <h1>Never Run Out of Food in Your Home</h1>
-    <p>With ChowPaddy, you can start with as little as ₦500, save towards your food, and get your kitchen stocked when you need it. No stress, no surprises from rising food prices.</p>
-    <a href="invest.html"><button>Start Now</button></a>
-  </section>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <div class="container">
+            <p>🎁 <strong>Launch Special:</strong> First 100 members get ₦500 FREE + Zero fees for 3 months! Only 67 spots left</p>
+        </div>
+    </div>
 
-  <section class="steps">
-    <div class="step">
-      <h2>1. Save Daily</h2>
-      <p>Deposit any amount into your ChowPaddy food wallet. You can even set up auto-deductions.</p>
-    </div>
-    <div class="step">
-      <h2>2. Lock Your Prices</h2>
-      <p>Beat food inflation. Once you’ve saved enough, your prices stay the same until you’re ready to buy.</p>
-    </div>
-    <div class="step">
-      <h2>3. Get Food Delivered</h2>
-      <p>When your balance completes the price of rice, beans, or garri, we deliver straight to your home.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Beat Food Inflation. <span class="highlight">Save Small, Eat Well.</span></h1>
+                    <p>With ChowVest, you can start with as little as ₦500, save towards your food, and get your kitchen stocked when you need it. No stress, no surprises from rising food prices.</p>
+                    <div class="hero-buttons">
+                        <a href="#signup" class="btn btn-primary">Start Saving Now →</a>
+                        <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600" alt="Nigerian family with groceries">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="features">
-    <div class="feature">
-      <img src="images/rice.jpg" alt="Rice">
-      <h3>Rice</h3>
-      <p>Start small, build up. With ChowPaddy, you’ll always have rice ready for your family.</p>
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats">
+                <div>
+                    <span class="stat-number">₦1.2M+</span>
+                    <span class="stat-label">Total Saved by Members</span>
+                </div>
+                <div>
+                    <span class="stat-number">47</span>
+                    <span class="stat-label">Active Savers</span>
+                </div>
+                <div>
+                    <span class="stat-number">23</span>
+                    <span class="stat-label">Successful Deliveries</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="feature">
-      <img src="images/beans.jpg" alt="Beans">
-      <h3>Beans</h3>
-      <p>Save steadily towards beans without worrying about price increases.</p>
-    </div>
-    <div class="feature">
-      <img src="images/garri.jpg" alt="Garri">
-      <h3>Garri</h3>
-      <p>Your everyday food, secured. Lock today’s price and buy when you’re ready.</p>
-    </div>
-  </section>
 
-  <footer>
-    &copy; 2025 ChowPaddy. Helping families never run out of food.<br><br>
-    <div class="social-icons">
-      <a href="https://t.me/yourchannel" target="_blank">
-        <img src="images/telegram.svg" alt="Telegram" width="24" height="24">
-      </a>
-      <a href="https://instagram.com/yourprofile" target="_blank">
-        <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
-      </a>
-      <a href="https://twitter.com/yourprofile" target="_blank">
-        <img src="images/twitter.svg" alt="Twitter" width="24" height="24">
-      </a>
-      <a href="mailto:support@chowpaddy.com">
-        <img src="images/email.svg" alt="Email" width="24" height="24">
-      </a>
-    </div>
-  </footer>
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How ChowVest Works</h2>
+                <p>Three simple steps to start saving and beating food inflation</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Deposit Any Amount</h3>
+                    <p>Deposit any amount into your ChowVest food wallet. You can even set up auto-deductions. Start with as little as ₦500.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Beat Food Inflation</h3>
+                    <p>Once you've saved enough, your prices stay the same until you're ready to buy. Lock today's prices!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Home Delivery</h3>
+                    <p>When your balance completes the price of rice, beans, or garri, we deliver straight to your home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Food Products -->
+    <section class="food-products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Start Saving For Your Favorite Foods</h2>
+                <p>Choose from our quality food products and start building your savings today</p>
+            </div>
+            <div class="products-grid">
+                <!-- Rice Product -->
+                <div class="product-card">
+                    <img src="images/rice.jpg" alt="Rice" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Rice</h3>
+                        <p class="product-description">Start small, build up. With ChowVest, you'll always have rice ready for your family.</p>
+                        <div class="product-price">
+                            <div>
+                                <div class="price-label">Starting from</div>
+                                <div class="price-amount">₦500/week</div>
+                            </div>
+                        </div>
+                        <a href="#signup" class="btn btn-primary">Start Saving</a>
+                    </div>
+                </div>
+
+                <!-- Beans Product -->
+                <div class="product-card">
+                    <img src="images/beans.jpg" alt="Beans" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Beans</h3>
+                        <p class="product-description">Save steadily towards beans without worrying about price increases.</p>
+                        <div class="product-price">
+                            <div>
+                                <div class="price-label">Starting from</div>
+                                <div class="price-amount">₦500/week</div>
+                            </div>
+                        </div>
+                        <a href="#signup" class="btn btn-primary">Start Saving</a>
+                    </div>
+                </div>
+
+                <!-- Garri Product -->
+                <div class="product-card">
+                    <img src="images/garri.jpg" alt="Garri" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Garri</h3>
+                        <p class="product-description">Your everyday food, secured. Lock today's price and buy when you're ready.</p>
+                        <div class="product-price">
+                            <div>
+                                <div class="price-label">Starting from</div>
+                                <div class="price-amount">₦500/week</div>
+                            </div>
+                        </div>
+                        <a href="#signup" class="btn btn-primary">Start Saving</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose ChowVest</h2>
+                <p>The smartest way to save for your household food needs</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Price Lock Protection</h3>
+                    <p>Lock today's prices and protect yourself from future inflation. Your price stays the same no matter what happens.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Start with ₦500</h3>
+                    <p>No need for bulk payments. Start small and build up your savings at your own pace.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Free Delivery</h3>
+                    <p>When you complete your savings goal, we deliver your foodstuff straight to your doorstep.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Track Your Savings</h3>
+                    <p>See your progress in real-time. Know exactly how much you've saved and how close you are to your goal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>We work directly with trusted manufacturers to ensure you get the best quality foodstuff.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Flexible Savings</h3>
+                    <p>Save daily, weekly, or monthly - whatever works for your budget. You're in complete control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="signup">
+        <div class="container">
+            <h2>Ready to Start Saving?</h2>
+            <p>Join 47 smart Nigerians already beating food inflation with ChowVest</p>
+            <a href="dashboard.html" class="btn">Create Your Account Now →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🍚 ChowVest</h3>
+                    <p>Save small, eat well. Beat food inflation with smart savings for your household food needs.</p>
+                    
+                    <!-- Social Media Links -->
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <img src="images/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <img src="images/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <img src="images/twitter.svg" alt="Twitter">
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Telegram">
+                            <img src="images/telegram.svg" alt="Telegram">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#products">Products</a>
+                    <a href="#features">Features</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#help">Help Center</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#privacy">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ChowVest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after click
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
